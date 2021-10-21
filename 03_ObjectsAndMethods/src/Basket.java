@@ -67,12 +67,8 @@ public class Basket {
         totalPrice = 0;
     }
 
-    public int getTotalPrice() {
-        return totalPrice;
-    }
-
     public double getTotalWeight(){
-        return totalWeight;
+        return this.totalWeight = totalWeight;
     }
 
 
