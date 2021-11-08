@@ -6,8 +6,8 @@ public class GeometryCalculator {
     }
     // метод должен использовать абсолютное значение radius
     public static double getSphereVolume(double radius) {
-        double v = 3.0 / 4 * (Math.PI * Math.pow(radius, 3));
-        return v;
+        double v = 4 * (Math.PI * Math.pow(radius, 3)) / 3;
+        return Math.abs(v);
     }
     public static boolean isTrianglePossible(double a, double b, double c) {
         if ((a+b)>c && (a+c)>b && (b+c)>a)
@@ -20,9 +20,9 @@ public class GeometryCalculator {
     // перед расчетом площади рекомендуется проверить возможен ли такой треугольник
     // методом isTrianglePossible, если невозможен вернуть -1.0
     public static double getTriangleSquare(double a, double b, double c) {
-       double p = (a + b + c) / 2;
-       double s = p * (p - a) * (p - b) * (p - c);
-       double ss = Math.pow(s, 2);
-        return ss;
+        double p = (a + b + c) / 2;
+        double s = p * (p - a) * (p - b) * (p - c);
+        double ss = Math.sqrt(s);
+        return Math.abs(ss);
     }
 }
