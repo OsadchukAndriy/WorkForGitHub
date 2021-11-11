@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 
 public class Main {
 
@@ -12,6 +13,15 @@ public class Main {
     }
 
     public static String collectBirthdays(int year, int month, int day) {
+        LocalDate birthday = LocalDate.of(1995, 12, 01);
+        LocalDate today = LocalDate.now();
+         if(birthday.isBefore(today)){
+             System.out.println(birthday);
+         }
+
+
+
+
 
         //TODO реализуйте метод для построения строки в следующем виде
         //0 - 31.12.1990 - Mon
