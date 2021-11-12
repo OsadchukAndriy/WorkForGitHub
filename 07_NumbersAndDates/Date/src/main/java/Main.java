@@ -1,27 +1,33 @@
 import java.time.LocalDate;
-import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class Main {
-
     public static void main(String[] args) {
-
-        LocalDate birthday = LocalDate.of(1995, 5, 23);
-
-        System.out.println(getPeriodFromBirhday(birthday));
+        int day = 1;
+        int month = 12;
+        int year = 1995;
+        System.out.println(collectBirthdays(year, month, day));
     }
-        private static String getPeriodFromBirhday(LocalDate birthday) {
+    public static String collectBirthdays(int year, int month, int day) {
 
+        LocalDate birthday = LocalDate.of(year, month, day);
+        LocalDate now = LocalDate.now();
+        String europeanDatePattern = ("dd.MM.yyyy - E");
+        DateTimeFormatter europeanDateFormatter =  DateTimeFormatter.ofPattern(europeanDatePattern).localizedBy(new Locale("us"));
+        String date = "";
 
-            LocalDate now = LocalDate.now();
-            Period period = Period.between(birthday, now);
+        // for (int i = 0; birthday.plusYears(i).getYear() <= now.getYear(); i++) {
+        //     date = (i + " - " + europeanDateFormatter.format(birthday.plusYears(i)));
+        //    System.out.println(date);
 
-            return period.getYears() + " years, " + period.getMonths() + " months, " + period.getDays() + " days";
-
+        int i = 0;
+        while (birthday.plusYears(i).getYear() <= now.getYear()){
+            date = (i + " - " + europeanDateFormatter.format(birthday.plusYears(i)));
+            i++;
+            System.out.println(date);
         }
-
-
-        //TODO реализуйте метод для построения строки в следующем виде
-        //0 - 31.12.1990 - Mon
-        //1 - 31.12.1991 - Tue
+        return date;
     }
 
+}
