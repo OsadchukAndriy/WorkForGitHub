@@ -1,32 +1,27 @@
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        int day = 31;
-        int month = 12;
-        int year = 1990;
+        LocalDate birthday = LocalDate.of(1995, 5, 23);
 
-        System.out.println(collectBirthdays(year, month, day));
-
+        System.out.println(getPeriodFromBirhday(birthday));
     }
-
-    public static String collectBirthdays(int year, int month, int day) {
-        LocalDate birthday = LocalDate.of(1995, 12, 01);
-        LocalDate today = LocalDate.now();
-         if(birthday.isBefore(today)){
-             System.out.println(birthday);
-         }
+        private static String getPeriodFromBirhday(LocalDate birthday) {
 
 
+            LocalDate now = LocalDate.now();
+            Period period = Period.between(birthday, now);
 
+            return period.getYears() + " years, " + period.getMonths() + " months, " + period.getDays() + " days";
+
+        }
 
 
         //TODO реализуйте метод для построения строки в следующем виде
         //0 - 31.12.1990 - Mon
         //1 - 31.12.1991 - Tue
-        
-        return "";
     }
-}
+
