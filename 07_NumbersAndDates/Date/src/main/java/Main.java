@@ -4,9 +4,9 @@ import java.util.Locale;
 
 public class Main {
     public static void main(String[] args) {
-        int day = 1;
-        int month = 12;
-        int year = 1995;
+        int day = 19;
+        int month = 11;
+        int year = 2020;
         System.out.println(collectBirthdays(year, month, day));
     }
     public static String collectBirthdays(int year, int month, int day) {
@@ -16,18 +16,17 @@ public class Main {
         String europeanDatePattern = ("dd.MM.yyyy - E");
         DateTimeFormatter europeanDateFormatter =  DateTimeFormatter.ofPattern(europeanDatePattern).localizedBy(new Locale("us"));
         String date = "";
+        String dateTrim = "";
+        int a;
+        for ( a = 0; ; a++){
+            if (birthday.isBefore(now) || birthday.isEqual(now))
+            {
+                date += a + " - " + europeanDateFormatter.format(birthday) + System.lineSeparator();
+                birthday = birthday.plusYears(1);
 
-        // for (int i = 0; birthday.plusYears(i).getYear() <= now.getYear(); i++) {
-        //     date = (i + " - " + europeanDateFormatter.format(birthday.plusYears(i)));
-        //    System.out.println(date);
-
-        int i = 0;
-        while (birthday.plusYears(i).getYear() <= now.getYear()){
-            date = (i + " - " + europeanDateFormatter.format(birthday.plusYears(i)));
-            i++;
-            System.out.println(date);
+            } else if (birthday.isAfter(now)){
+                break;
+            }
         }
-        return date;
-    }
-
-}
+        return date.trim();
+    }}
