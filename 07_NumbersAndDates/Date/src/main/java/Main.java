@@ -17,16 +17,13 @@ public class Main {
         DateTimeFormatter europeanDateFormatter =  DateTimeFormatter.ofPattern(europeanDatePattern).localizedBy(new Locale("us"));
         String date = "";
         String dateTrim = "";
-        int a;
-        for ( a = 0; ; a++){
-            if (birthday.isBefore(now) || birthday.isEqual(now))
-            {
-                date += a + " - " + europeanDateFormatter.format(birthday) + System.lineSeparator();
-                birthday = birthday.plusYears(1);
+        int a = 0;
+        while(birthday.isBefore(now) || birthday.isEqual(now)){
+            date += a + " - " + europeanDateFormatter.format(birthday) + System.lineSeparator();
+            birthday = birthday.plusYears(1);
+            a++;
 
-            } else if (birthday.isAfter(now)){
-                break;
-            }
         }
         return date.trim();
-    }}
+    }
+}
