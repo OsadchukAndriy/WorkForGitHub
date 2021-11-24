@@ -2,44 +2,38 @@ import java.util.Scanner;
 
 public class Main {
 
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    Scanner scanner = new Scanner(System.in);
-    while (true) {
-      String input = scanner.nextLine();
-      if (input.equals("0")) {
-        break;
-      }
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            String input = scanner.nextLine();
+            if (input.equals("0")) {
+                break;
+            }
+            String name = input;
+            int space = 0;
+            for (int s = 0; s < name.length(); s++) {
+                if (name.charAt(s) == ' ') {
+                    space++;
+                }
+            }
+            for (int i = 0; i < name.length(); i++) {
+                if (name.charAt(i) >= '0' && name.charAt(i) <= '9' || space > 2 || space == 0) {
+                    System.out.println("Введенная строка не является ФИО");
+                    break;
+                } else {
+                    System.out.println(
+                            "Фамилия: " + name.substring(0, name.indexOf(' ')) + System.lineSeparator() +
+                                    "Имя:" + name.substring(name.indexOf(' '), name.lastIndexOf(' ')) + System.lineSeparator() +
+                                    "Отчество:" + name.substring(name.lastIndexOf(' ')));
+                    break;
 
-      int spaceCount = 0;
-      int firstSpace = input.indexOf(' ');
-      int lastSpace = input.lastIndexOf(' ');
-      String firstName = input.substring(firstSpace + 1, lastSpace);
-      String secondName = input.substring(0, firstSpace);
-      String lastName = input.substring(lastSpace + 1);
-      boolean printName = false;
+                }
 
-      for(int a = 0; a < input.length(); a++){
-        char symbol = input.charAt(a);
-        if (symbol == ' '){
-          spaceCount++;
+            }
         }
-        if ((symbol == 32 || symbol == 45 || (symbol > 1048 && symbol < 1104)) && spaceCount == 2){
-          printName = true;
-        } else {
-          printName = false;
-        }
-
-      }
-      if (printName){
-        System.out.println("Фамилия: " + secondName + "\nИмя: " + firstName + "\nОтчество: " + lastName );
-      }
-      else {
-        System.out.println("Введенная строка не является ФИО");
-      }
 
     }
-  }
 }
 
 
