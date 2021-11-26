@@ -7,9 +7,11 @@ public class Hospital {
 
         float[] patientsTemperatures = new float[patientsCount];
         for (int i = 0; i < patientsTemperatures.length; i++) {
-            float scale = (float) Math.pow(10, 1);
-            float randomTemp = (float) ((Math.random() * 8) + 32);
-            float randomTemperatures = Math.round(randomTemp * scale) / scale;
+            float rounding = (float) Math.pow(10, 1);
+            float min = 32;
+            float max = 40;
+            float randomTemp = (float) ((Math.random() * (max - min)) + min);
+            float randomTemperatures = Math.round(randomTemp * rounding) / rounding;
             patientsTemperatures[i] = randomTemperatures;
         }
         return patientsTemperatures;
@@ -26,9 +28,9 @@ public class Hospital {
                 healthyPatientsCount++;
         }
 
-        float scale = (float) Math.pow(10, 2);
+        float rounding = (float) Math.pow(10, 2);
         float temperatureBeforeRound = temperaturesSum / temperatureData.length;
-        float middle = Math.round(temperatureBeforeRound * scale) / scale;
+        float middle = Math.round(temperatureBeforeRound * rounding) / rounding;
         String report =
                 "Температуры пациентов: " + patientsTemperatures.trim() +
                         "\nСредняя температура: " + middle +
