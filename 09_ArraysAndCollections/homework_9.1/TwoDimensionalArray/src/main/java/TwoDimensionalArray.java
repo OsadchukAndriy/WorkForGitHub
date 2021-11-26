@@ -2,13 +2,19 @@ public class TwoDimensionalArray {
     public static char symbol = 'X';
 
     public static char[][] getTwoDimensionalArray(int size) {
+        int i = 0;
+        int j = 0;
 
-        //TODO: Написать метод, который создаст двумерный массив char заданного размера.
-        // массив должен содержать символ symbol по диагоналям, пример для size = 3
-        // [X,  , X]
-        // [ , X,  ]
-        // [X,  , X]
+        char[][] cross = new char[size][size];
+        for (i = 0; i < cross.length; i++) {
+            for (j = 0; j < cross[i].length; j++) {
 
-        return new char[0][0];
+                cross[i][j] = (j == i || j == cross.length - 1 - i) ? symbol : ' ';
+                System.out.print(cross[i][j]);
+            }
+            System.out.println();
+        }
+
+        return cross;
     }
 }
