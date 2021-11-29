@@ -40,6 +40,5 @@ public class Main {
                     break;
             }
         }
-        // TODO: написать консольное приложение для работы со списком дел todoList
     }
 }
