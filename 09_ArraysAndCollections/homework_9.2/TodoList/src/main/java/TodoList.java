@@ -9,22 +9,22 @@ public class TodoList {
     }
 
     public void add(int index, String todo) {
-            if (index <= todoList.size()) {
-                todoList.add(index, todo);
-            } else {
-                todoList.add(todo);
-            }
-            System.out.println("Добавлено дело: " + todo + "На место: " + index);
-
+        if (index <= todoList.size()) {
+            todoList.add(index, todo);
+        } else {
+            todoList.add(todo);
         }
+        System.out.println("Добавлено дело: " + todo + "На место: " + index);
+
+    }
 
     public void edit(String todo, int index) {
         if (index < 0 || index + 1 > todoList.size()) {
             System.out.println("Невозможно добавить дело с таким индексом");
-    } else {
+        } else {
             todoList.set(index, todo);
-        System.out.println("Отредактировано: " + todoList + "На место: " + index);
-    }
+            System.out.println("Отредактировано: " + todoList + "На место: " + index);
+        }
     }
 
     public void delete(int index) {
