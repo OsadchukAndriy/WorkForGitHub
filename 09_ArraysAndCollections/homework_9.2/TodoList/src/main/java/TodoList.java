@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class TodoList {
-    ArrayList todoList = new ArrayList();
+    ArrayList<String> todoList = new ArrayList <String>();
 
     public void add(String todo) {
         todoList.add(todo);
