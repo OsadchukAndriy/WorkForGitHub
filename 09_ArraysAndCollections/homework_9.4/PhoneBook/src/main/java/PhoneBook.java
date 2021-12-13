@@ -1,11 +1,11 @@
 
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.TreeMap;
+import antlr.collections.List;
+
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class PhoneBook {
-    Map<String, String> mapPhoneBook = new TreeMap<>();
+    Map<String, String> mapPhoneBook = new HashMap<>();
     Set<String> setPhoneBook = new TreeSet<>();
 
     public void addContact(String phone, String name) {
@@ -16,12 +16,9 @@ public class PhoneBook {
                 mapPhoneBook.put(phone, name);
             }
         }
-        // проверьте корректность формата имени и телефона (отдельные методы для проверки)
-        // если такой номер уже есть в списке, то перезаписать имя абонента
     }
 
     public String getContactByPhone(String phone) {
-
         if (mapPhoneBook.containsKey(phone)) {
             return mapPhoneBook.get(phone) + " - " + phone;
         } else {
@@ -41,26 +38,35 @@ public class PhoneBook {
             setPhoneBook.add(nameTel.substring(0, nameTel.length() - 2));
             return setPhoneBook;
         } else {
-            // формат одного контакта "Имя - Телефон"
-            // если контакт не найден - вернуть пустой TreeSet
             return new TreeSet<>();
         }
     }
 
     public Set<String> getAllContacts() {
-
-        for (String key : mapPhoneBook.keySet()) {
-            setPhoneBook.add(mapPhoneBook.get(key) + " - " + key);
+        Map<String, Set<String>> treeMap = new TreeMap<>();
+        TreeSet<String> result = new TreeSet<>();
+        if (!mapPhoneBook.isEmpty()) {
+            for (Map.Entry<String, String> entry : mapPhoneBook.entrySet()) {
+                String phone = entry.getKey();
+                String name = entry.getValue();
+                if (treeMap.containsKey(name)) {
+                    treeMap.get(name).add(phone);
+                } else {
+                    Set<String> temp = new TreeSet<>();
+                    temp.add(phone);
+                    treeMap.put(name, temp);
+                }
+            }
+            for (Map.Entry<String, Set<String>> entry : treeMap.entrySet()) {
+                result.add(entry.getKey() + " - " + String.join(", ", entry.getValue()));
+            }
+            return result;
         }
-        if (!setPhoneBook.isEmpty()) {
-            return setPhoneBook;
-        } else {
-            return new TreeSet<>();
-        }
+        return new TreeSet<>();
     }
 }
-    // для обхода Map используйте получение пары ключ->значение Map.Entry<String,String>
-    // это поможет вам найти все ключи (key) по значению (value)
+// для обхода Map используйте получение пары ключ->значение Map.Entry<String,String>
+// это поможет вам найти все ключи (key) по значению (value)
     /*
         for (Map.Entry<String, String> entry : map.entrySet()){
             String key = entry.getKey(); // получения ключа
