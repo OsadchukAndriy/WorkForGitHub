@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Main {
     /*
@@ -29,29 +26,30 @@ public class Main {
         } else {
             System.out.println("Поиск перебором: " + WRONG + " поиск занял " + g);
         }
+        Collections.sort(list);
         long start1 = System.nanoTime();
         coolNumbers.binarySearchInList(list, number);
         long d = (System.nanoTime() - start1);
         if (true) {
-            System.out.println("Поиск перебором: " + TRUE + " поиск занял " + d);
+            System.out.println("Бинарный поиск: " + TRUE + " поиск занял " + d);
         } else {
-            System.out.println("Поиск перебором: " + WRONG + " поиск занял " + d);
+            System.out.println("Бинарный поиск: " + WRONG + " поиск занял " + d);
         }
         long start2 = System.nanoTime();
         coolNumbers.searchInHashSet(hash, number);
         long q = (System.nanoTime() - start2);
         if (true) {
-            System.out.println("Поиск перебором: " + TRUE + " поиск занял " + q);
+            System.out.println("Поиск в HashSet: " + TRUE + " поиск занял " + q);
         } else {
-            System.out.println("Поиск перебором: " + WRONG + " поиск занял " + q);
+            System.out.println("Поиск в HashSet: " + WRONG + " поиск занял " + q);
         }
         long start3 = System.nanoTime();
         coolNumbers.searchInTreeSet(tree, number);
         long j = (System.nanoTime() - start3);
         if (true) {
-            System.out.println("Поиск перебором: " + TRUE + " поиск занял " + j);
+            System.out.println("Поиск в TreeSet: " + TRUE + " поиск занял " + j);
         } else {
-            System.out.println("Поиск перебором: " + WRONG + " поиск занял " + j);
+            System.out.println("Поиск в TreeSet: " + WRONG + " поиск занял " + j);
         }
     }
 
