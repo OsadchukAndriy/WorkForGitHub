@@ -7,6 +7,8 @@ public class BankAccount {
         if (amountToPut < 0) {
             getAmount();
             return true;
+
+
         } else {
             amount = getAmount() + amountToPut;
             System.out.println(getAmount());

@@ -10,13 +10,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         EmailList emailList = new EmailList();
+        Pattern p = Pattern.compile("(ADD|LIST)\\\\s?(.*)");
 
         while (true) {
             String input = scan.nextLine();
             if (input.equals("0")) {
                 break;
             }
-            Pattern p = Pattern.compile("(ADD|LIST)\\\\s?(.*)");
             Matcher m = p.matcher(input);
             String emailAdress = m.group(2).toLowerCase();
             String command = m.group(1);

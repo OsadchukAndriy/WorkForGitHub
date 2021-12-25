@@ -6,11 +6,9 @@ public class Main {
     private static TodoList todoList = new TodoList();
 
     public static void main(String[] args) {
-        while (true){
-        Scanner scan = new Scanner(System.in);
-        String line = scan.nextLine();
-
-
+        while (true) {
+            Scanner scan = new Scanner(System.in);
+            String line = scan.nextLine();
             Pattern p = Pattern.compile("(ADD|LIST|EDIT|DELETE) \\s*([0-9]*) \\s*(.+)*");
             Matcher m = p.matcher(line);
             if (!m.matches()) {
@@ -20,15 +18,15 @@ public class Main {
             String command = m.group(1);
             int index = !m.group(2).isBlank() ? Integer.parseInt(m.group(2)) : -1;
             String text = m.group(3);
-            if(index != -1 && command.equals("ADD")){
+            if (index != -1 && command.equals("ADD")) {
                 todoList.add(index, text);
                 continue;
             }
 
-            switch (command){
+            switch (command) {
                 case "LIST":
                     System.out.println();
-                break;
+                    break;
                 case "ADD":
                     System.out.println();
                     break;
