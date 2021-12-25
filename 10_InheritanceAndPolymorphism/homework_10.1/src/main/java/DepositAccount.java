@@ -6,7 +6,6 @@ public class DepositAccount extends BankAccount {
         lastIncome = start;
         return super.put(amountToPut);
     }
-
     @Override
     public boolean put(double amountToPut) {
         return this.put(amountToPut, LocalDate.now());
@@ -20,7 +19,6 @@ public class DepositAccount extends BankAccount {
         }
         return false;
     }
-
     @Override
     public boolean take(double amountToTake) {
         return this.take(amountToTake, LocalDate.now());
