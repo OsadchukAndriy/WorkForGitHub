@@ -8,7 +8,6 @@ public class BankAccount {
             getAmount();
             return true;
 
-
         } else {
             amount = getAmount() + amountToPut;
             System.out.println(getAmount());
