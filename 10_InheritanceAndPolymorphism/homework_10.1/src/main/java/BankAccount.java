@@ -1,6 +1,6 @@
 public class BankAccount {
-    public double amount = 0;
-    public double getAmount() {
+   private double amount = 0;
+   public double getAmount() {
         return amount;
     }
     public boolean put(double amountToPut) {

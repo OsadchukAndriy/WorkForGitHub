@@ -5,7 +5,6 @@ public class DepositAccount extends BankAccount {
     public boolean put(double amountToPut, LocalDate start) {
         lastIncome = start;
         return super.put(amountToPut);
-
     }
     @Override
     public boolean put(double amountToPut) {
