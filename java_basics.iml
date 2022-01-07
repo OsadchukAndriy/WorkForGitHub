@@ -9,6 +9,7 @@
       <sourceFolder url="file://$MODULE_DIR$/04_Encapsulation/03_Immutable/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/04_Encapsulation/04_Copy/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/05_StaticFinal/02_enum/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/10_InheritanceAndPolymorphism/homework_10.4" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/04_Encapsulation" />
     </content>
     <orderEntry type="inheritedJdk" />
